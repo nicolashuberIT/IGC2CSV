@@ -1,7 +1,10 @@
 #################
 ## IGC2CSV Specific
 #################
-*.csv
+
+# ignore csv in src folder
+
+src/*.csv
 notes.txt
 
 #################
