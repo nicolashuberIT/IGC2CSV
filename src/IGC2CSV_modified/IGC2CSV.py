@@ -1,7 +1,7 @@
 # %%
 
 """
-IGC2CSV-modified.py:
+IGC2CSV.py:
 
 - This python package is available at https://github.com/nicolashuberIT/IGC2CSV.
 
