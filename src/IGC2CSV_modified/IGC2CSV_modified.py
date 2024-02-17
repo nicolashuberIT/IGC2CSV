@@ -24,6 +24,7 @@ COPYRIGHT NOTICE:
 
 import os
 import datetime
+import pandas as pd
 from math import radians, sin, cos, asin, sqrt
 from typing import List, Dict, Any, Tuple
 
@@ -397,15 +398,16 @@ class IGC2CSV:
         outputfilename = filename + ".csv"
         return outputfilename
 
-    def process_files(self, fileparam: str) -> None:
+    def process_files(self, fileparam: str, export_to_csv: bool) -> None:
         """
-        Processes IGC files and generates CSV output.
+        Processes IGC files and generates CSV output or returns a list of dictionaries representing the records.
 
         Parameters:
         - fileparam: The IGC file or directory to process.
+        - export_to_csv: Whether to export to CSV.
 
         Returns:
-        - None
+        - DataFrame: A pandas DataFrame containing the records
         """
         logbook: List[Dict[str, Any]] = []
 
@@ -464,19 +466,35 @@ class IGC2CSV:
                 outputfields.append(("True Airspeed", "record", "opt_tas"))
                 outputfields.append(("True Airspeed Peak", "record", "tas_peak"))
 
-            header = ""
-            for field in outputfields:
-                header += field[0] + ","
-            output.write(header[:-1] + "\n")
-
+            records_data = []
             for record in flight["fixrecords"]:
-                recordline = ""
+                record_data = {}
                 for field in outputfields:
                     if field[1] == "record":
-                        recordline += str(record[field[2]]) + ","
+                        record_data[field[0]] = record[field[2]]
                     elif field[1] == "flight":
-                        recordline += str(flight[field[2]]) + ","
-                output.write(recordline[:-1] + "\n")
+                        record_data[field[0]] = flight[field[2]]
+                records_data.append(record_data)
+
+            if export_to_csv:
+                output = open(flight["outputfilename"], "w")
+                header = ""
+                for field in outputfields:
+                    header += field[0] + ","
+                output.write(header[:-1] + "\n")
+
+                for record in flight["fixrecords"]:
+                    recordline = ""
+                    for field in outputfields:
+                        if field[1] == "record":
+                            recordline += str(record[field[2]]) + ","
+                        elif field[1] == "flight":
+                            recordline += str(flight[field[2]]) + ","
+                    output.write(recordline[:-1] + "\n")
+            else:
+                os.remove(flight["outputfilename"])
+
+            return pd.DataFrame(records_data)
 
 
 # %%
