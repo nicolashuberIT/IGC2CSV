@@ -32,7 +32,7 @@ The codebase has been tested using the `pytest` module. The recent CI/CD status 
 
 ### Changelog
 
-- **[1.0.0]** - Not released yet.
+- **[1.0.0]** - 02/17/2024: initial release
 
 ---
 
