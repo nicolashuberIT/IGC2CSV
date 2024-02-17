@@ -1,12 +1,14 @@
 # IGC2CSV
 
+_Please note: This repository was forked from the original **IGC2KML** application by OverloadUT linked [here](https://github.com/OverloadUT/IGC2CSV) and is only partly Nicolas Huber's work. Thanks for noticing._
+
 ## Modifications
 
-
+_This section will follow as soon as the development work has been completed.
 
 ---
 
-## Documentation
+## Original Documentation
 
 Reads an IGC file (a flight log used very commonly in hang gliding and paragliding) and spits out a CSV file with the flight data.
 
@@ -43,7 +45,7 @@ Static type annotations are used in this project. The codebase has been tested u
 
 ## License & Intellectual Property
 
-Please note: This repository was forked from the original **IGC2KML** application by OverloadUT linked [here](https://github.com/OverloadUT/IGC2CSV) and is only partly Nicolas Huber's work. Thanks for noticing._
+_Please note: This repository was forked from the original **IGC2KML** application by OverloadUT linked [here](https://github.com/OverloadUT/IGC2CSV) and is only partly Nicolas Huber's work. Thanks for noticing._
 
 The source code of this application is licensed under the license linked [here](LICENSE.md) (MIT License).
 
