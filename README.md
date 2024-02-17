@@ -10,7 +10,7 @@ _Please note: This repository was forked from the original **IGC2KML** applicati
 
 ## Modifications
 
-Modifications are listed in the source code of this application, which can be found [here](/src/IGC2CSV_modified/IGC2CSV_modified.py). Please note that the `IGC2CSV` class is encorporated as an external module in the `flight-analyzer` application, which can be seen [here](https://github.com/nicolashuberIT/flight-analyzer). Both the modifications as well as the unit testing of this application here are meant to make sure that the output of the `IGC2CSV` utility matches the requirements of the `flight-analyzer` tool and its algorithms.
+Modifications are listed in the source code of this python package, which can be found [here](/src/IGC2CSV_modified/IGC2CSV.py). Please note that the `IGC2CSV` class is encorporated as an external package in the `flight-analyzer` application, which can be seen [here](https://github.com/nicolashuberIT/flight-analyzer). Both the modifications as well as the unit testing of this package are meant to make sure that the output of the `IGC2CSV` utility matches the requirements of the `flight-analyzer` tool and its algorithms.
 
 ---
 
@@ -24,7 +24,11 @@ The original documentation can be found [here](https://github.com/OverloadUT/IGC
 
 ### Conventions
 
-Static type annotations are used in this project. The codebase has been tested using the `pytest` module. The recent CI/CD status can be found at the top of this page. Click [here](https://github.com/nicolashuberIT/IGC2CSV/actions) for a detailed overview and unit testing logs. The code is formatted and linted in VS Code using the Black Formatter Extension and Pylint.
+Static type annotations are used in this project. The code is formatted and linted in VS Code using the Black Formatter Extension and Pylint.
+
+### Testing
+
+The codebase has been tested using the `pytest` module. The recent CI/CD status can be found at the top of this page. Click [here](https://github.com/nicolashuberIT/IGC2CSV/actions) for a detailed overview and unit testing logs. Windows causes problems with file permissions, which is why it's excluded from testing and not officially supported.
 
 ### Changelog
 
