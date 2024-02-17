@@ -1,5 +1,11 @@
 # IGC2CSV
 
+![Python](https://img.shields.io/badge/Python-3.9,3.10,3.11,3.12-blue)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license--intellectual-property)
+![Testing](https://github.com/nicolashuberIT/IGC2CSV/actions/workflows/testing.yaml/badge.svg)
+![Formatting](https://img.shields.io/badge/formatting-Black-black)
+![Linting](https://img.shields.io/badge/linting-Pylint-yellow)
+
 _Please note: This repository was forked from the original **IGC2KML** application by OverloadUT linked [here](https://github.com/OverloadUT/IGC2CSV) and is only partly Nicolas Huber's work. Thanks for noticing._
 
 ## Modifications
