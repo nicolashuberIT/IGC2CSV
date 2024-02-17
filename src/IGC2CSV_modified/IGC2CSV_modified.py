@@ -496,5 +496,93 @@ class IGC2CSV:
 
             return pd.DataFrame(records_data)
 
+    def remove_first_row(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Removes the first row from the DataFrame.
+
+        Parameters:
+        - data: The DataFrame to be modified.
+
+        Returns:
+        - DataFrame: The modified DataFrame.
+        """
+        return data.iloc[1:]
+
+    def convert_dataframe(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Converts the DataFrame to the format required by the flight-analyzer application.
+
+        Parameters:
+        - data: The DataFrame to be converted.
+
+        Returns:
+        - DataFrame: The converted DataFrame.
+        """
+        data_selected = data[
+            [
+                "Datetime (UTC)",
+                "Altitude GPS",
+                "Groundspeed",
+                "Climb Speed",
+                "Distance From Start (straight line)",
+                "Longitude (Degrees)",
+                "Latitude (Degrees)",
+            ]
+        ]
+
+        data_selected_renamed = data_selected.rename(
+            columns={
+                "Datetime (UTC)": "timestamp [UTC]",
+                "Altitude GPS": "relative altitude [m]",
+                "Groundspeed": "horizontal velocity [m/s]",
+                "Climb Speed": "vertical velocity [m/s]",
+                "Distance From Start (straight line)": "distance to takeoff [km]",
+                "Longitude (Degrees)": "longitude",
+                "Latitude (Degrees)": "latitude",
+            }
+        )
+
+        return data_selected_renamed
+
+    def convert_horizontal_speed(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Converts the groundspeed from km/h to m/s after the DataFrame has been converted to flight-analyzer format.
+
+        Parameters:
+        - data: The DataFrame to be modified.
+
+        Returns:
+        - DataFrame: The modified DataFrame.
+        """
+        data["horizontal velocity [m/s]"] = data["horizontal velocity [m/s]"] / 3.6
+        return data
+
+    def remove_static_speeds(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Removes static speeds from the DataFrame.
+
+        Parameters:
+        - data: The DataFrame to be modified.
+
+        Returns:
+        - DataFrame: The modified DataFrame.
+        """
+        data = data[data["horizontal velocity [m/s]"] > 0]
+        return data
+
+    def export_to_csv(self, data: pd.DataFrame, filename: str) -> None:
+        """
+        Exports the DataFrame to a CSV file.
+
+        Parameters:
+        - data: The DataFrame to be exported.
+        - filename: The filename of the CSV file.
+
+        Returns:
+        - None
+        """
+        data.to_csv(filename, index=False)
+        return
+
 
 # %%
