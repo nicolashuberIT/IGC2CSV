@@ -1,6 +1,16 @@
 # %%
 
 """
+IGC2CSV-modified.py:
+
+- This python package is available at https://github.com/nicolashuberIT/IGC2CSV.
+
+TESTING NOTICE:
+
+- The original IGC2CSV code was not accompanied by any tests.
+- This modified version of the code is tested using the pytest framework. The tests are available in the /tests directory of the repository. 
+- The tests are written to ensure that the code works as expected and that the modifications do not introduce any regressions.
+
 COPYRIGHT NOTICE: 
 
 - The original IGC2CSV code was created by OverloadUT and there's no explicit license information available in the original repository.
@@ -9,25 +19,19 @@ COPYRIGHT NOTICE:
 - The modifications include encapsulating the code in a class, adding type hints, and removing the main function to make the code more reusable and testable. Additionally the code has been formatted according to PEP 8 using Black and some additional functionality has been added.
 - The modified code is encorporated into the research project in the form of a Python module in the flight-analyzer application, which is part of the research project and is available at https://github.com/nicolashuberIT/flight-analyzer.
 
-©  OverloadUT, 2017 & Nicolas Huber, 2024.
-
-TESTING NOTICE:
-
-- The original IGC2CSV code was not accompanied by any tests.
-- This modified version of the code is tested using the pytest framework. The tests are available in the /tests directory of the repository. 
-- The tests are written to ensure that the code works as expected and that the modifications do not introduce any regressions.
+©  2017, OverloadUT & 2024, Nicolas Huber.
 """
 
 import os
-import sys
 import datetime
 from math import radians, sin, cos, asin, sqrt
 from typing import List, Dict, Any, Tuple
 
 
+# AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
 class IGC2CSV:
     """
-    A class to convert IGC files to CSV format.
+    A class to parse IGC files (and generate csv files).
     """
 
     def __init__(self) -> None:
