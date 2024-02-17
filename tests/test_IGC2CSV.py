@@ -6,6 +6,8 @@ It covers:
 - The length of the resulting DataFrame.
 - The properties of the resulting DataFrame.
 - The speed data in the resulting DataFrame.
+- The longitude data in the resulting DataFrame.
+- The latitude data in the resulting DataFrame.
 
 The idea is to test if the data matches the format that the flight-analyzer requires, which is determined by comparing the resulting DataFrame with a reference DataFrame that was created manually from a file that was processed with the flight-analyzer.
 """
