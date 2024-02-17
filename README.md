@@ -10,7 +10,7 @@ _Please note: This repository was forked from the original **IGC2KML** applicati
 
 ## Modifications
 
-Modifications are listed in the source code of this application.
+Modifications are listed in the source code of this application, which can be found [here](/src/IGC2CSV_modified/IGC2CSV_modified.py). Please note that the `IGC2CSV` class is encorporated as an external module in the `flight-analyzer` application, which can be seen [here](https://github.com/nicolashuberIT/flight-analyzer). Both the modifications as well as the unit testing of this application here are meant to make sure that the output of the `IGC2CSV` utility matches the requirements of the `flight-analyzer` tool and its algorithms.
 
 ---
 
