@@ -111,7 +111,7 @@ def test_dataframe(igc2csv: IGC2CSV) -> None:
     assert result_flight_analyzer["latitude"].dtype == np.float64
 
 
-def check_speed_data(igc2csv: IGC2CSV) -> None:
+def check_speed_data_0(igc2csv: IGC2CSV) -> None:
     """
     Check if there's any 0 value in the horizontal speed data.
 
@@ -124,3 +124,65 @@ def check_speed_data(igc2csv: IGC2CSV) -> None:
     result = igc2csv.process_files(TEST_FILE, False)
     result_flight_analyzer = igc2csv.export_to_flight_analyzer_format(result)
     assert result_flight_analyzer["horizontal velocity [m/s]"].all() > 0
+
+
+def check_speed_data_1(igc2csv: IGC2CSV, reference) -> None:
+    """
+    Check if the speed data is equal to the reference data (rounded to 1 decimal place).
+
+    Args:
+    - igc2csv: IGC2CSV object to be tested.
+    - reference: Reference DataFrame to compare the result with.
+
+    Returns:
+    - None
+    """
+    result = igc2csv.process_files(TEST_FILE, False)
+    result_flight_analyzer = igc2csv.export_to_flight_analyzer_format(result)
+
+    assert np.allclose(
+        np.round(result_flight_analyzer["horizontal velocity [m/s]"], 1),
+        np.round(reference["horizontal velocity [m/s]"], 1),
+    )
+    assert np.allclose(
+        np.round(result_flight_analyzer["vertical velocity [m/s]"], 1),
+        np.round(reference["vertical velocity [m/s]"], 1),
+    )
+
+
+def test_longitude(igc2csv: IGC2CSV, reference) -> None:
+    """
+    Test of the longitude data (rounded to 1 decimal place) is equal to the reference data (rounded to 1 decimal place).
+
+    Args:
+    - igc2csv: IGC2CSV object to be tested.
+    - reference: Reference DataFrame to compare the result with.
+
+    Returns:
+    - None
+    """
+    result = igc2csv.process_files(TEST_FILE, False)
+    result_flight_analyzer = igc2csv.export_to_flight_analyzer_format(result)
+    assert np.allclose(
+        np.round(result_flight_analyzer["longitude"], 1),
+        np.round(reference["longitude"], 1),
+    )
+
+
+def test_latitude(igc2csv: IGC2CSV, reference) -> None:
+    """
+    Test of the latitude data (rounded to 1 decimal place) is equal to the reference data (rounded to 1 decimal place).
+
+    Args:
+    - igc2csv: IGC2CSV object to be tested.
+    - reference: Reference DataFrame to compare the result with.
+
+    Returns:
+    - None
+    """
+    result = igc2csv.process_files(TEST_FILE, False)
+    result_flight_analyzer = igc2csv.export_to_flight_analyzer_format(result)
+    assert np.allclose(
+        np.round(result_flight_analyzer["latitude"], 1),
+        np.round(reference["latitude"], 1),
+    )
