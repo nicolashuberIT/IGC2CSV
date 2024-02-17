@@ -4,7 +4,7 @@ _Please note: This repository was forked from the original **IGC2KML** applicati
 
 ## Modifications
 
-_This section will follow as soon as the development work has been completed.
+Modifications are listed in the source code of this application.
 
 ---
 
@@ -26,8 +26,6 @@ You can specify either a single IGC file, or a directory full of IGC files:
     python IGC2CSV.py /path/to/folder/with/igc/files/
 
 The CSV files will be output in the current working directory
-
-DashWare supports a variety of formats natively, but IGC is not one of them. The included DashWare DataProfile works alongside the output of IGC2CSV to give you access to all of your flight data, *including True Airspeed if your variometer supports it.*
 
 ---
 
