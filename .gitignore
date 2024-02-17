@@ -5,6 +5,7 @@
 # ignore csv in src folder
 
 src/*.csv
+src/*.igc
 notes.txt
 
 #################
@@ -235,7 +236,3 @@ pip-log.txt
 #############
 ## Files
 #############
-
-# ignore igc files
-
-*.igc
