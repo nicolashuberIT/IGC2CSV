@@ -2,7 +2,7 @@
 ## IGC2CSV Specific
 #################
 *.csv
-
+notes.txt
 
 #################
 ## Eclipse
@@ -197,6 +197,7 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+*__pycache__/
 *.py[co]
 
 # Packages
