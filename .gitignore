@@ -223,3 +223,11 @@ pip-log.txt
 #version
 
 .python-version
+
+#############
+## Files
+#############
+
+# ignore igc files
+
+*.igc
