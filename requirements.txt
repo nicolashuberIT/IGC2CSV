@@ -1,1 +1,3 @@
-# currently no requirements outside of the standard library
+# testing
+
+pytest==7.4.4
