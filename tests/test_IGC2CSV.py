@@ -100,8 +100,6 @@ def test_dataframe(igc2csv: IGC2CSV) -> None:
     assert "longitude" in result_flight_analyzer.columns
     assert "latitude" in result_flight_analyzer.columns
 
-    # check types of columns
-
     assert result_flight_analyzer["timestamp [UTC]"].dtype == "datetime64[ns]"
     assert result_flight_analyzer["relative altitude [m]"].dtype == "int64"
     assert result_flight_analyzer["horizontal velocity [m/s]"].dtype == np.float64
