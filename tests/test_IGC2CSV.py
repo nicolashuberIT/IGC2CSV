@@ -19,7 +19,7 @@ import pandas as pd
 # AI content (GitHub Copilot, 01/25/2024), verified and adapted by Nicolas Huber.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.IGC2CSV_modified.IGC2CSV_modified import IGC2CSV
+from src.IGC2CSV_modified.IGC2CSV import IGC2CSV
 
 TEST_FILE = "tests/assets/test_IGC2CSV.igc"
 REFERENCE_FILE = "tests/assets/test_IGC2CSV.csv"
