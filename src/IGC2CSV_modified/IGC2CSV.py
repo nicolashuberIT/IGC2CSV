@@ -29,12 +29,12 @@ from math import radians, sin, cos, asin, sqrt
 from typing import List, Dict, Any, Tuple
 
 
-# AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
 class IGC2CSV:
     """
     A class to parse IGC files (and generate csv files).
     """
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def __init__(self) -> None:
         """
         Initializes the IGC2CSV class.
@@ -62,6 +62,7 @@ class IGC2CSV:
 
         self.headertypes: Dict[str, Any] = {"FDTE": self.logline_H_FDTE}
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def parse_igc(self, flight: Dict[str, Any]) -> Dict[str, Any]:
         """
         Parses the IGC file and returns a flight dictionary.
@@ -86,6 +87,7 @@ class IGC2CSV:
 
         return flight
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def crunch_flight(self, flight: Dict[str, Any]) -> Dict[str, Any]:
         """
         Adds calculated fields to the flight dictionary.
@@ -194,6 +196,7 @@ class IGC2CSV:
 
         return flight
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_A(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Processes type A records from the IGC file.
@@ -208,6 +211,7 @@ class IGC2CSV:
         flight["manufacturer"] = line[1:]
         return
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_H(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Processes type H records from the IGC file.
@@ -225,6 +229,7 @@ class IGC2CSV:
             print("Header (not implemented): {}".format(line[1:]))
         return
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_H_FDTE(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Processes flight date header records from the IGC file.
@@ -241,6 +246,7 @@ class IGC2CSV:
         )
         print("Flight date: {}".format(flight["flightdate"]))
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_I(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Processes type I records from the IGC file.
@@ -260,6 +266,7 @@ class IGC2CSV:
                 int(field[2:4]),
             )
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_B(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Processes type B records from the IGC file.
@@ -286,6 +293,7 @@ class IGC2CSV:
 
         return
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def logline_NotImplemented(self, line: str, flight: Dict[str, Any]) -> None:
         """
         Handles unimplemented record types.
@@ -300,6 +308,7 @@ class IGC2CSV:
         print("Record Type {} not implemented: {}".format(line[0:1], line[1:]))
         return
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def lat_to_degrees(self, lat: str) -> float:
         """
         Converts latitude from IGC format to degrees.
@@ -317,6 +326,7 @@ class IGC2CSV:
         directionmod = direction[lat[7]]
         return (degrees + minutes / 60.0) * directionmod
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def lon_to_degrees(self, lon: str) -> float:
         """
         Converts longitude from IGC format to degrees.
@@ -334,6 +344,7 @@ class IGC2CSV:
         directionmod = direction[lon[8]]
         return (degrees + minutes / 60.0) * directionmod
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def haversine(self, lon1: float, lat1: float, lon2: float, lat2: float) -> float:
         """
         Calculates the distance between two points using the haversine formula.
@@ -355,6 +366,7 @@ class IGC2CSV:
         km = 6367 * c
         return km
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def straight_line_distance(
         self,
         lon1: float,
@@ -383,6 +395,7 @@ class IGC2CSV:
         c = sqrt(a**2.0 + b**2.0)
         return c
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def get_output_filename(self, inputfilename: str) -> str:
         """
         Generates an output filename based on the input filename.
@@ -398,6 +411,7 @@ class IGC2CSV:
         outputfilename = filename + ".csv"
         return outputfilename
 
+    # AI content (ChatGPT, 02/17/2024), verified and adapted by Nicolas Huber.
     def process_files(self, fileparam: str, export_to_csv: bool) -> None:
         """
         Processes IGC files and generates CSV output or returns a list of dictionaries representing the records.
