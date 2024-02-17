@@ -570,6 +570,22 @@ class IGC2CSV:
         data = data[data["horizontal velocity [m/s]"] > 0]
         return data
 
+    def export_to_flight_analyzer_format(self, data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Converts the DataFrame to the format required by the flight-analyzer application.
+
+        Parameters:
+        - data: The DataFrame to be converted.
+
+        Returns:
+        - DataFrame: The converted DataFrame.
+        """
+        data = self.remove_first_row(data)
+        data = self.convert_dataframe(data)
+        data = self.convert_horizontal_speed(data)
+        data = self.remove_static_speeds(data)
+        return data
+
     def export_to_csv(self, data: pd.DataFrame, filename: str) -> None:
         """
         Exports the DataFrame to a CSV file.
