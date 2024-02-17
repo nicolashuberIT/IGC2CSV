@@ -8,7 +8,7 @@ IGC2CSV.py:
 TESTING NOTICE:
 
 - The original IGC2CSV code was not accompanied by any tests.
-- This modified version of the code is tested using the pytest framework. The tests are available in the /tests directory of the repository. 
+- This modified version of the code is tested using the pytest framework. The tests are available in the /tests directory of the repository (https://github.com/nicolashuberIT/IGC2CSV). 
 - The tests are written to ensure that the code works as expected and that the modifications do not introduce any regressions.
 
 COPYRIGHT NOTICE: 
